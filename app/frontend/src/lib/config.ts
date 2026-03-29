@@ -9,9 +9,10 @@ export const IS_GH_PAGES_MODE =
 export const BASE_PATH = IS_GH_PAGES_MODE ? '/hedge-fund-tracker' : '';
 
 // API base URL: null in GH Pages mode (no backend available)
-export const API_BASE = IS_GH_PAGES_MODE ? null : 'http://localhost:8000';
+// When served by FastAPI, use the current origin (works locally and on Railway)
+export const API_BASE = IS_GH_PAGES_MODE ? null : (typeof window !== 'undefined' ? window.location.origin : 'http://localhost:8000');
 
 // Database base URL for CSV file access
 export const DATABASE_URL = IS_GH_PAGES_MODE
   ? '' // relative paths (files served from public/database/)
-  : 'http://localhost:8000/database';
+  : `${typeof window !== 'undefined' ? window.location.origin : 'http://localhost:8000'}/database`;
