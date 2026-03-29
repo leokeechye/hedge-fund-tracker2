@@ -201,7 +201,7 @@ All persistent data lives in `database/`:
 - Opens GitHub Issues for unidentified filers (funds not in `hedge_funds.csv`)
 - Enables non-blocking background updates
 
-**`.github/workflows/python-tests.yml`**
+**`.github/workflows/run-tests.yml`**
 
 - Runs full test suite on push/PR
 - Tests all AI clients, analysis modules, scrapers, stock resolution
@@ -320,7 +320,7 @@ Before marking work complete:
 
 - [ ] Wrote a failing test first (watched it fail for the right reason)
 - [ ] Code is minimal and just passes the test
-- [ ] All tests pass (`pipenv run python -m pytest tests/`)
+- [ ] All tests pass (`pipenv run python -m unittest discover`)
 - [ ] No test setup complexity (if complex, design might be too coupled)
 - [ ] Tests use real code, not mocks (mocks only if unavoidable)
 - [ ] Edge cases and error conditions covered
